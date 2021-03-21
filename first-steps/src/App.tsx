@@ -4,9 +4,16 @@ import './App.css';
 
 import Message from './Message';
 
-class App extends Component {
+class App extends Component<any> {
+  componentWillMount() {
+    console.log('Almost there...');
+  }
+  
+  componentDidMount() {
+    console.log('Finally...hello!');
+  }
+  
   render() {
-
     return (
       <div className="App">
         <header className="App-header">
