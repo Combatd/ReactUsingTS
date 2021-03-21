@@ -3,13 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 import Message from './Message';
 
+const initialState = {
+  name: 'Manny',
+  message: 'TypeScript is cool!!'
+}
+
+type State = Readonly<typeof initialState> // use an actual type for typeof in production
+
 class App extends Component<any> {
+  readonly state: State = initialState;
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Message name='Manny' message='this is a simple message'/>
+          <Message name={this.state.name} message={this.state.message}/>
         </header>
       </div>
     );
