@@ -1,0 +1,27 @@
+import React, { Component } from 'react';
+
+const initialState = {
+    name: 'Manny',
+    message: 'HOC is cool!!'
+}
+
+type State = Readonly<typeof initialState> // use an actual type for typeof in production
+
+const messageHoc = (WrappedComponent: any) => {
+    class HOC extends Component<{}, State> {
+        readonly state: State = initialState;
+
+        render() {
+            return (
+                <WrappedComponent
+                name = {this.state.name}
+                message = {this.state.message} 
+                 />
+            )
+        }
+    }
+
+    return HOC;
+}
+
+export default messageHoc;
